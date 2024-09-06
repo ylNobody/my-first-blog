@@ -1,0 +1,17 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+
+    <form method="post" action="{% url 'users:register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button name="submit">Register</button>
+        <!--
+        <input type="hidden" name="next" value="{% url 'learning_logs:index' %}"/>
+        上面这一行是可有可无的，按照登录模板中的思路，这行代码的作用是在登录成功后跳转至索引页，而在注册模板中，这一点将会通过视图函数 register 中 else 中的重定位来完成
+        -->
+
+    </form>
+
+{% endblock content %}
